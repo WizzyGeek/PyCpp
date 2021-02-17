@@ -16,7 +16,7 @@ ff.curse(str, "__lshift__", str_lshift)
 class OutStream:
     def __lshift__(self, content):
         print(content, end = "")
-        return content
+        return self
 
 class InStream:
     def __rshift__(self, content):
