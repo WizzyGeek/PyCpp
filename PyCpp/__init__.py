@@ -2,7 +2,11 @@ from .iostream import *
 
 class std: pass
 
-excluded_globals = {"std", "excluded_globals"}
+__version__ = 0.1
+
+excluded_globals = {"std", "excluded_globals", "void"}
+
+void = None
 
 # populate std namespace
 for _i, _j in globals().copy().items():

@@ -1,4 +1,11 @@
-from PyCpp import std, cout
+from PyCpp import std, cout, endl, void
 
-std.cout << "Oh " << "My " << "God ";
-cout << "Are you a" << " '" << "using namespace std;" << "' " << "guy?";
+def Omg() -> void:
+    std.cout << "Oh " << "My " << "God" << std.endl;
+
+def main() -> int:
+    cout << "Are you a" << " '" << "using namespace std;" << "' " << "guy?" << endl;
+    Omg();
+    return 0;
+
+main()
