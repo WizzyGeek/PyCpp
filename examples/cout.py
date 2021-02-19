@@ -1,7 +1,4 @@
-# import sys
-# import os
-# sys.path.insert(0, os.path.dirname("."))
-
-from PyCpp import std
+from PyCpp import std, cout
 
 std.cout << "Oh " << "My " << "God ";
+cout << "Are you a" << " '" << "using namespace std;" << "' " << "guy?";
