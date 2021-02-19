@@ -159,3 +159,6 @@ pip-selfcheck.json
 .vs/
 .vscode/
 .idea/
+
+# WIP
+docs/
