@@ -8,11 +8,6 @@ __all__ = (
 
 endl = "\n"
 
-def str_lshift(self, other):
-    return self + other
-
-ff.curse(str, "__lshift__", str_lshift)
-
 class OutStream:
     def __lshift__(self, content):
         print(content, end = "")

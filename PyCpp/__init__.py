@@ -1,4 +1,5 @@
 from .iostream import *
+from .stringpp import *
 
 class std: pass
 
