@@ -1,9 +1,10 @@
 from .iostream import *
 from .stringpp import *
+from .ostream import *
 
 class std: pass
 
-__version__ = "0.1.post1"
+__version__ = "0.2"
 
 excluded_globals = {"std", "excluded_globals", "void"}
 
