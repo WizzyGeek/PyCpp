@@ -56,7 +56,7 @@ class vector():
 
     def erase(self, position: int, end_position: int = None) -> None:
         "Clear all data from the vector at the specified index or throughout the range"
-        end_position = (end_position if not end_position == None else position) + 1
+        end_position = (end_position if end_position != None else position) + 1
         for i in range(position, end_position):
             self.data_.pop(i)
         return
