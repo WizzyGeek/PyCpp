@@ -1,6 +1,7 @@
 from .iostream import *
 from .stringpp import *
 from .ostream import *
+from .stringstream import stringstream
 
 class std: pass
 
