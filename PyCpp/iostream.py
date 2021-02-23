@@ -20,7 +20,7 @@ class basic_ostream:
     def __lshift__(self, content):
         print(
             content,
-            end=None,
+            end="",
             file=self.stream,
             flush=((content is flush) or (content is endl))
         )
@@ -28,7 +28,7 @@ class basic_ostream:
 
 class ostream_unbuf(basic_ostream):
     def __lshift__(self, content):
-        print(content, end=None, file=self.stream, flush=True)
+        print(content, end="", file=self.stream, flush=True)
         return self
 
 class basic_istream:
