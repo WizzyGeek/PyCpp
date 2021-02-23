@@ -45,14 +45,17 @@ class vector():
         return self.data_
     
     def insert(self, position: int, val) -> None:
+        "Insert a value at the specified index"
         self.data_.insert(position, val)
         return
 
     def clear(self) -> None:
+        "Clear all data from the vector"
         self.data_ = []
         return
 
     def erase(self, position: int, end_position: int = None) -> None:
+        "Clear all data from the vector at the specified index or throughout the range"
         end_position = (end_position if not end_position == None else position) + 1
         for i in range(position, end_position):
             self.data_.pop(i)
