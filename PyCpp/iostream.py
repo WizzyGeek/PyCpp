@@ -17,17 +17,19 @@ class basic_ostream:
     def __init__(self, stream = None) -> None:
         self.stream = stream
 
-    def __lshift__(self, content) -> None:
+    def __lshift__(self, content):
         print(
             content,
             end=None,
             file=self.stream,
             flush=((content is flush) or (content is endl))
         )
+        return self
 
 class ostream_unbuf(basic_ostream):
-    def __lshift__(self, content) -> None:
+    def __lshift__(self, content):
         print(content, end=None, file=self.stream, flush=True)
+        return self
 
 class basic_istream:
     def __rshift__(self, content) -> str:
