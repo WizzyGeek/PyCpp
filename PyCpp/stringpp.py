@@ -6,11 +6,15 @@ __all__ = (
     "toupper"
 )
 
+## Private Methods ##
+
 def str_lshift(self, other):
     return self + str(other)
 
 def str_length(self):
     return len(self)
+
+## Exposed Cpp Function ##
 
 def tolower(other:str) -> str:
     return other.lower()
