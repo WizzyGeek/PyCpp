@@ -20,5 +20,6 @@ However, the actual library code should be pythonic.
 `python -m pip install Py.Cpp`
 
 ### Authors
- - [WizzyGeek](https://github.com/WizzyGeek)
- - [Nemika](https://github.com/Nemika-Haj)
+   - [WizzyGeek](https://github.com/WizzyGeek)
+   - [Nemika](https://github.com/Nemika-Haj)
+   - [Rick](https://github.com/doublevcodes)

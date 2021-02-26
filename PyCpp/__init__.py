@@ -2,6 +2,8 @@ from .iostream import *
 from .stringpp import *
 from .ostream import *
 from .stringstream import stringstream
+from .fstream import *
+from .vector import *
 
 class std: pass
 

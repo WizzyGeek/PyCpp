@@ -26,6 +26,11 @@ class basic_ostream:
         )
         return self
 
+    def flush(self):
+        # https://www.cplusplus.com/reference/ostream/basic_ostream/flush/
+        self.stream.flush()
+        return self
+
 class ostream_unbuf(basic_ostream):
     def __lshift__(self, content):
         print(content, end="", file=self.stream, flush=True)
