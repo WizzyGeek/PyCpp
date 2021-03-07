@@ -1,8 +1,7 @@
 from os import PathLike
 from typing import Union
 
-from .ostream import flush, endl
-from .iostream import basic_ostream
+from .iostream import basic_ostream, basic_istream
 
 __all__ = (
     "ofstream",
@@ -21,9 +20,16 @@ class ofstream(basic_ostream):
     def is_open(self) -> bool:
         return not self.stream.closed
 
-class ifstream:
-    def __init__(self, fileName:str) -> None:
-        self.file = fileName
+class ifstream(basic_istream):
+    def __init__(self, fileName: Union[str, PathLike]) -> None:
+        self.stream = open(fileName, "r")
+        self._buffer = []
+
+    def __stream_get__(self):
+        if not self._buffer:
+            self._buffer = super().__stream_get__().split()
+        return self._buffer.pop(0)
 
 def getline(ifstream):
-    return open(ifstream.file).readlines()
+    for i in ifstream.stream.readlines():
+        yield i[:-1]

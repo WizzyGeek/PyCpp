@@ -15,7 +15,7 @@ int main() {
 
     ifstream ReadFile("Output.txt");
 
-    while (getline (ReadFile, Text)) {
+    while (getline(ReadFile, Text)) {
         cout << Text << endl;
     }
 

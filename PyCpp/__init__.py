@@ -1,14 +1,23 @@
-from .iostream import *
-from .stringpp import *
-from .ostream import *
+from ._pointer import *
+from .errors import *
 from .fstream import *
+from .iostream import *
+from .ostream import *
+from .stringpp import *
 from .vector import *
+
 
 class std: pass
 
 __version__ = "0.2"
 
-excluded_globals = {"std", "excluded_globals", "void"}
+excluded_globals = {
+    "std",
+    "excluded_globals",
+    "void",
+    "NullPointerAccess",
+    "Pointer"
+}
 
 void = None
 
