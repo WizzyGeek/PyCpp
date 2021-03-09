@@ -4,6 +4,10 @@ from typing import Dict, Union, Tuple
 
 from ._pointer import Pointer
 from .ostream import endl, flush
+from .vector import PY_39
+
+if PY_39:
+    from .vector import c_GenericAlias
 
 
 __all__ = (
@@ -14,12 +18,20 @@ __all__ = (
     "cerr",
     "wcerr",
     "cin",
-    "wcin"
+    "wcin",
+    "istream",
+    "basic_istream",
+    "ostream",
+    "basic_ostream",
+    "iostream",
+    "basic_iostream"
 )
 
 
 class basic_ostream:
     def __init__(self, stream = None) -> None:
+        if not stream.writable():
+            raise ValueError("Stream must be writeable")
         self.stream = stream
 
     def __lshift__(self, content):
@@ -35,6 +47,12 @@ class basic_ostream:
         # https://www.cplusplus.com/reference/ostream/basic_ostream/flush/
         self.stream.flush()
         return self
+
+    def __repr__(self):
+        return f"<{self.__class__.__name__} of {self.stream.name}>"
+
+    if PY_39:
+        __class_getitem__ = c_GenericAlias
 
 
 class ostream_unbuf(basic_ostream):
@@ -63,7 +81,7 @@ def _parse_vars(pystmt: str):
 class basic_istream:
     def __init__(self, stream) -> None:
         self._cache: Dict[str, Dict[int, Dict[str, Union[Tuple[Pointer, int]]]]] = {}
-        if not stream.readable:
+        if not stream.readable():
             raise ValueError("stream must be readable")
         self.stream = stream
 
@@ -99,12 +117,29 @@ class basic_istream:
         ptr_cache["index"] = (ptr_cache["index"] + 1) % len(ptr_cache["ptrs"])
         return self
 
-    def __stream_get__(self):
+    def __stream_get__(self) -> str:
         return self.stream.readline()[:-1]
 
     def __repr__(self):
-        return f"<basic_istream of {self.stream.name}>"
+        return f"<{self.__class__.__name__} of {self.stream.name}>"
 
+    if PY_39:
+        __class_getitem__ = c_GenericAlias
+
+class basic_iostream(basic_istream, basic_ostream):
+    def __init__(self, stream) -> None:
+        super(basic_istream, self).__init__(stream)
+        super(basic_ostream, self).__init__(stream)
+
+# Type Aliases in Py3.9
+if PY_39:
+    istream = basic_istream[str]
+    ostream = basic_ostream[str]
+    iostream = basic_iostream[str]
+else:
+    istream = basic_istream
+    ostream = basic_ostream
+    iostream = basic_iostream
 
 # NOTE
 # In python we only have bytes, str

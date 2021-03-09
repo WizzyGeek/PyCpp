@@ -4,6 +4,8 @@ from .fstream import *
 from .iostream import *
 from .ostream import *
 from .stringpp import *
+from .sstream import *
+from .fstream import *
 from .vector import *
 
 

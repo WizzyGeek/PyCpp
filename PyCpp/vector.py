@@ -2,6 +2,7 @@ from sys import version_info
 
 if version_info.major >= 3 and version_info.minor >= 9:
     PY_39 = True
+    c_GenericAlias = classmethod(__import__("types").GenericAlias)
 else:
     PY_39 = False
 
@@ -71,5 +72,4 @@ class vector:
         return
 
     if PY_39:
-        from os import GenericAlias
-        __class_getitem__ = classmethod(GenericAlias)
+        __class_getitem__ = c_GenericAlias
