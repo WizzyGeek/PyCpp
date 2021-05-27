@@ -1,3 +1,7 @@
+
+[![forthebadge](https://forthebadge.com/images/badges/powered-by-black-magic.svg)](https://forthebadge.com) <br/>
+[![forthebadge](https://forthebadge.com/images/badges/contains-tasty-spaghetti-code.svg)](https://forthebadge.com) <br/>
+
 # PyCpp
 
 An effort to bring Cpp like syntax to Python
